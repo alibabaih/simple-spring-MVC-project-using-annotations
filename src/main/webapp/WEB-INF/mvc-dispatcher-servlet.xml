@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+       ">
+
+    <!--
+        В данной конфигурации мы указываем, где искать все наши контроллеры,
+        сервисы и другие компоненты с помощью тега: context:component-scan,
+        а также инициализируем InternalResourceViewResolver,
+        который отвечайте за показ View в нашем случае это jsp страницы.
+    -->
+    <context:component-scan base-package="springSimpleMVCExample"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- //or we can use this sintaksis
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+            <property name="prefix">
+                <value>/WEB-INF/pages/</value>
+            </property>
+            <property name="suffix">
+                <value>.jsp</value>
+            </property>
+        </bean>
+    -->
+
+</beans>
